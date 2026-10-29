@@ -25,7 +25,9 @@ function drawWorld(t) {
 
 function placeholder(t) {
   paint(ellPts(960, 520, 520, 300, 30, 20), { fill: PAL.sky, fillOp: 90, bleed: .3, ink: null });
-  clawd(960, 820, 20, feel('happy', t));
+  const y = 540 + 45 * wob(t, .5);
+  glow(960, y, 150, '#FFC766', .8);
+  paint(starPts(960, y, 80, .45, 5, .08 * wob(t, .5)), { wash: PAL.ochre, ink: PAL.ink, sw: 1 });
 }
 
 // ---------- brush wipe ----------
@@ -33,7 +35,7 @@ function placeholder(t) {
 // Cut to the next shot at p = .5, under full cover. Call it last in both shots, in screen space (outside a camera):
 //   end of shot A:   if (lt > dur - .3) brushWipe((lt - (dur - .3)) / .6);
 //   start of shot B: if (lt < .3) brushWipe(.5 + lt / .6);
-function brushWipe(p, cols = [PAL.clayDk, PAL.clay]) {
+function brushWipe(p, cols = [PAL.indigo, PAL.sky]) {
   if (p <= 0 || p >= 1) return;
   const [c1, c2] = cols, n = 5, bh = (H + 420) / n + 40;
   push(); translate(W / 2, H / 2); rotate(-.1); translate(-W / 2, -H / 2);

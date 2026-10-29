@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Clawd studio</title>
+<title>Hand-painted Animation Studio</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=block">
 <style>
   html, body { margin: 0; background: #1b1820; color: #eee; font: 13px system-ui, sans-serif; }
@@ -19,19 +19,19 @@
 <body>
 <main>
   <canvas id="out" width="1920" height="1080"></canvas>
-  <div class="bar"><input id="scrub" type="range" min="0" max="11" step="0.0417" value="0"><span id="tt">loading…</span></div>
+  <div class="bar"><input id="scrub" aria-label="Animation time" type="range" min="0" max="11" step="0.0417" value="0"><span id="tt">loading…</span></div>
 </main>
 <!-- engine -->
 <script src="src/config.js"></script>
 <script src="src/core.js"></script>
-<script src="src/clawd.js"></script>
+<script src="src/effects.js"></script>
 <script src="src/timeline.js"></script>
-<!-- reference sheets (standalone loops) -->
+<!-- effect reference sheet (standalone loop) -->
 <script src="src/sheets.js"></script>
 <!-- your video: add a script per scene file, in order -->
 <script src="src/scenes/demo.js"></script>
 <script>
-  // Open studio.html?loop=emotions (or views) to scrub a standalone loop instead of the video.
+  // Open studio.html?loop=effects to scrub the effect reference loop instead of the video.
   const q = new URLSearchParams(location.search).get('loop'); if (q && LOOPS[q]) window.LOOP = LOOPS[q];
 </script>
 </body>
